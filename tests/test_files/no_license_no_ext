@@ -1,0 +1,2 @@
+This is a test file without extension and without SPDX license header.
+It should fail verification when default file type handling is enabled.

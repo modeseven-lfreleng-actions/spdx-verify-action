@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 The Linux Foundation
+
+This is a test file without extension but with proper SPDX license header.
+It should be detected using the default file type configuration.

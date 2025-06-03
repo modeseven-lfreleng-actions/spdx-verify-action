@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 The Linux Foundation
+
+name: Demo - Successful SPDX Verification
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/demo-success.yml'
+
+jobs:
+  demo-success:
+    runs-on: ubuntu-latest
+    name: Verify SPDX Headers (Success Demo)
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Test SPDX verification on Python tests (should pass)
+        uses: ./
+        with:
+          directory: 'tests'
+          license: 'Apache-2.0'
+          debug: 'true'
+          skip: '__pycache__/**'
+
+      - name: Test SPDX verification on workflows (should pass)
+        uses: ./
+        with:
+          directory: '.github/workflows'
+          license: 'Apache-2.0'
+          debug: 'true'
+
+      - name: Test with specific skip patterns
+        uses: ./
+        with:
+          directory: '.'
+          license: 'Apache-2.0'
+          skip: 'tests/test_files/**,LICENSES/**,LICENSE,*.md,debug_test_environment.py'
+          debug: 'true'

@@ -1,0 +1,179 @@
+---
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2025 The Linux Foundation
+
+# SPDX License Verification Configuration
+# This file defines the supported file types and their comment patterns
+
+languages:
+  # Python files
+  python:
+    comment_prefix: "#"
+    extensions:
+      - .py
+      - .pyx
+      - .pyi
+
+  # JavaScript/TypeScript files
+  javascript:
+    comment_prefix: "//"
+    extensions:
+      - .js
+      - .jsx
+      - .ts
+      - .tsx
+      - .mjs
+      - .cjs
+
+  # CSS/SCSS/LESS files
+  css:
+    comment_prefix: "/*"
+    comment_suffix: "*/"
+    extensions:
+      - .css
+      - .scss
+      - .sass
+      - .less
+
+  # HTML/XML files
+  html:
+    comment_prefix: "<!--"
+    comment_suffix: "-->"
+    extensions:
+      - .html
+      - .htm
+      - .xml
+      - .xhtml
+      - .svg
+
+  # Shell script files
+  shell:
+    comment_prefix: "#"
+    extensions:
+      - .sh
+      - .bash
+      - .zsh
+      - .fish
+
+  # C/C++ files
+  c:
+    comment_prefix: "//"
+    extensions:
+      - .c
+      - .cpp
+      - .cxx
+      - .cc
+      - .h
+      - .hpp
+      - .hxx
+
+  # Java files
+  java:
+    comment_prefix: "//"
+    extensions:
+      - .java
+
+  # Rust files
+  rust:
+    comment_prefix: "//"
+    extensions:
+      - .rs
+
+  # Go files
+  go:
+    comment_prefix: "//"
+    extensions:
+      - .go
+
+  # Ruby files
+  ruby:
+    comment_prefix: "#"
+    extensions:
+      - .rb
+      - .rake
+
+  # PHP files
+  php:
+    comment_prefix: "//"
+    extensions:
+      - .php
+      - .phtml
+
+  # YAML files
+  yaml:
+    comment_prefix: "#"
+    extensions:
+      - .yml
+      - .yaml
+
+  # Dockerfile
+  dockerfile:
+    comment_prefix: "#"
+    extensions:
+      - .dockerfile
+    filenames:
+      - Dockerfile
+      - Containerfile
+
+  # Makefile
+  makefile:
+    comment_prefix: "#"
+    extensions: []  # No standard extensions, but keep key for consistency
+    filenames:
+      - Makefile
+      - makefile
+      - GNUmakefile
+
+  # Text files
+  text:
+    comment_prefix: "#"
+    extensions:
+      - .txt
+
+  # reStructuredText files
+  rst:
+    comment_prefix: ".."
+    extensions:
+      - .rst
+
+  # Markdown files
+  markdown:
+    comment_prefix: "<!--"
+    comment_suffix: "-->"
+    extensions:
+      - .md
+      - .markdown
+
+# Default file type handling for files without extensions
+default_file_type:
+  # Enable/disable handling of files without extensions
+  enabled: true
+  # Default language to use for files without extensions (must be defined in languages section)
+  language: "text"
+
+# Default skip patterns (can be overridden via CLI)
+default_skip_patterns:
+  - "*.min.js"
+  - "*.min.css"
+  - "node_modules/**"
+  - ".git/**"
+  - "__pycache__/**"
+  - "__pypackages__/**"
+  - "*.pyc"
+  - "*.pyo"
+  - "*.pyd"
+  - ".pytest_cache/**"
+  - ".mypy_cache/**"
+  - ".ruff_cache/**"
+  - ".coverage"
+  - "htmlcov/**"
+  - "dist/**"
+  - "build/**"
+  - ".venv/**"
+  - "venv/**"
+  - ".env"
+  - ".DS_Store"
+  - "*.log"
+  - "*.egg-info/**"
+  - ".pdm-build/**"
+  - ".tox/**"
