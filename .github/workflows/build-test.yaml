@@ -77,6 +77,7 @@ jobs:
         # uses: lfreleng-actions/python-test-action@16adb21ca4866bebc75e7b35203ce5b376b01430 # v0.1.7
         with:
           python_version: "${{ matrix.python-version }}"
+          path_prefix: '.'
 
       - name: 'Debug: Post-Test Information'
         if: always() # Run even if tests fail

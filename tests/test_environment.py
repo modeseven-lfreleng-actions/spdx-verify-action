@@ -22,30 +22,30 @@ def setup_test_environment():
     current_file = Path(__file__).resolve()
     project_root = current_file.parent.parent
     tests_dir = current_file.parent
-    
+
     # Ensure we're running from the project root
     if Path.cwd() != project_root:
         print(f"Changing working directory to: {project_root}")
         os.chdir(project_root)
-    
+
     # Ensure project root is in Python path for imports
     project_root_str = str(project_root)
     if project_root_str not in sys.path:
         sys.path.insert(0, project_root_str)
-    
+
     # Ensure test directory is accessible
     tests_dir_str = str(tests_dir)
     if tests_dir_str not in sys.path:
         sys.path.append(tests_dir_str)
-    
+
     # Set environment variables for consistent test behavior
     os.environ["PYTEST_CURRENT_TEST"] = "true"
-    
+
     # Ensure coverage data directory exists
     coverage_dir = tests_dir / ".coverage_data"
     coverage_dir.mkdir(exist_ok=True)
-    
-    print(f"Test environment setup complete:")
+
+    print("Test environment setup complete:")
     print(f"  - Working directory: {Path.cwd()}")
     print(f"  - Project root: {project_root}")
     print(f"  - Tests directory: {tests_dir}")
