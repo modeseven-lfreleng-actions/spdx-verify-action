@@ -140,9 +140,7 @@ data_file = "/tmp/.coverage"
 source = [
     ".",
 ]
-include = [
-    "spdx_verify.py",
-]
+# Remove the include line that was causing the conflict
 omit = [
     "tests/*",
     "setup.py",
