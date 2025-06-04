@@ -6,17 +6,17 @@ Unit tests for utility functions in spdx_verify module.
 """
 
 import os
-from unittest.mock import patch, mock_open
+from unittest.mock import mock_open, patch
 
 # Import from project root - no sys.path manipulation needed due to conftest.py setup
 from spdx_verify import (
-    load_config,
-    is_github_actions,
-    set_github_output,
-    Colors,
-    DEFAULT_LICENSE,
-    DEFAULT_COPYRIGHT,
     CONFIG_FILE,
+    DEFAULT_COPYRIGHT,
+    DEFAULT_LICENSE,
+    Colors,
+    is_github_actions,
+    load_config,
+    set_github_output,
 )
 
 

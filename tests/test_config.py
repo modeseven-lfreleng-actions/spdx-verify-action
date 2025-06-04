@@ -6,6 +6,7 @@ Test configuration, setup, and validation.
 """
 
 from pathlib import Path
+
 import pytest
 
 # Import from project root - no sys.path manipulation needed due to conftest.py setup

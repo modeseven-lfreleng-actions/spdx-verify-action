@@ -11,10 +11,11 @@ import tempfile
 from pathlib import Path
 from typing import Optional
 from unittest.mock import patch
+
 import pytest
 
 # Import from project root - no sys.path manipulation needed due to conftest.py setup
-from spdx_verify import SPDXVerifier, load_config, DEFAULT_LICENSE, DEFAULT_COPYRIGHT
+from spdx_verify import DEFAULT_COPYRIGHT, DEFAULT_LICENSE, SPDXVerifier, load_config
 
 
 class TestSPDXVerifier:
@@ -705,10 +706,10 @@ body {
 
     def test_verify_reuse_compliance_no_licenses_directory(self):
         """Test REUSE compliance check when LICENSES directory doesn't exist."""
-        from spdx_verify import verify_reuse_compliance
-
         # Remove LICENSES directory
         import shutil
+
+        from spdx_verify import verify_reuse_compliance
 
         shutil.rmtree(self.licenses_dir)
 

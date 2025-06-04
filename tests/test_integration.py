@@ -8,11 +8,12 @@ Integration tests for the verify() function and CLI interface.
 import os
 import tempfile
 from pathlib import Path
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
+
 import pytest
 
 # Import from project root - no sys.path manipulation needed due to conftest.py setup
-from spdx_verify import verify, main
+from spdx_verify import main, verify
 
 
 class TestVerifyFunction:
