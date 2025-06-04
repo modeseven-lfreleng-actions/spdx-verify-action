@@ -136,7 +136,7 @@ collect_ignore = [
 
 [tool.coverage.run]
 # Use relative path for coverage data file to avoid conflicts
-data_file = "tests/.coverage"
+data_file = "/tmp/.coverage"
 source = [
     ".",
 ]
@@ -172,5 +172,5 @@ show_missing = true
 skip_covered = false
 
 [tool.coverage.html]
-directory = "tests/htmlcov"
+directory = "htmlcov"
 title = "SPDX Verify Test Coverage Report"

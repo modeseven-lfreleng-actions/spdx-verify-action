@@ -34,16 +34,16 @@ def isolate_test_environment():
     # Store original state
     original_cwd = Path.cwd()
     original_path = sys.path.copy()
-    
+
     # Ensure we're in the project root
     os.chdir(PROJECT_ROOT)
-    
+
     # Ensure project root is in path
     if str(PROJECT_ROOT) not in sys.path:
         sys.path.insert(0, str(PROJECT_ROOT))
-    
+
     yield PROJECT_ROOT
-    
+
     # Cleanup: restore original state if needed
     # Note: In most cases we want to keep the working directory as project root
     # but restore path for safety - only if we're not in a test environment
@@ -222,6 +222,7 @@ def spdx_verifier():
     """Create a basic SPDXVerifier instance for testing."""
     # Import is available due to setup_test_environment fixture
     from spdx_verify import SPDXVerifier
+
     return SPDXVerifier(debug=True)
 
 

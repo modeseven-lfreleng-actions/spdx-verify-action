@@ -6,7 +6,6 @@ Unit tests for utility functions in spdx_verify module.
 """
 
 import os
-from pathlib import Path
 from unittest.mock import patch, mock_open
 
 # Import from project root - no sys.path manipulation needed due to conftest.py setup
