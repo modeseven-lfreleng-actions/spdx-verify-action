@@ -10,22 +10,23 @@ Supports both CLI usage and GitHub Actions integration with configurable
 language patterns and skip rules.
 """
 
-import os
-import sys
 import argparse
+import os
 import subprocess
+import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any, Set, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Set, Tuple
+
 import yaml
 
 if TYPE_CHECKING:
-    import typer  # type: ignore[import-not-found]
-    import pathspec  # type: ignore[import-not-found]
+    import pathspec
+    import typer
 else:
     try:
-        import typer  # type: ignore[import-not-found]
+        import typer
     except ImportError:
-        typer = None  # type: ignore[assignment]
+        typer = None
 
     try:
         import pathspec  # type: ignore[import-not-found]
@@ -998,7 +999,7 @@ def main() -> None:
         # Use typer for rich CLI if available
         app = typer.Typer(help="SPDX License Header Verification Tool")
 
-        @app.command()  # type: ignore[misc]
+        @app.command()
         def cli(
             paths: Optional[List[str]] = typer.Argument(
                 None, help="Paths to verify (files or directories)"

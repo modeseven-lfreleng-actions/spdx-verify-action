@@ -5,13 +5,13 @@
 Tests for the pre-commit mode functionality.
 """
 
-import tempfile
 import subprocess
+import tempfile
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 # Import from project root - no sys.path manipulation needed due to conftest.py setup
-from spdx_verify import verify, get_git_tracked_files
+from spdx_verify import get_git_tracked_files, verify
 
 
 def test_get_git_tracked_files_success():

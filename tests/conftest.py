@@ -12,6 +12,7 @@ import sys
 import tempfile
 from pathlib import Path
 from typing import Dict, List
+
 import pytest
 
 # Ensure the project root is in the Python path for imports
@@ -344,12 +345,10 @@ class TestDataGenerator:
             "node_modules": {  # Should be skipped entirely
                 "package": {"index.js": "// no headers here"}
             },
-            ".git": {  # Should be skipped entirely
-                "config": "git config content"
-            },
-            "__pycache__": {  # Should be skipped entirely
+            ".git": {"config": "git config content"},  # Should be skipped entirely
+            "__pycache__": {
                 "cache.pyc": "binary cache content"
-            },
+            },  # Should be skipped entirely
             "build": None,  # Empty directory that should be skipped
             "dist": None,  # Empty directory that should be skipped
         }

@@ -78,6 +78,7 @@ jobs:
         with:
           python_version: "${{ matrix.python-version }}"
           path_prefix: '.'
+          tox_tests: true
 
       - name: 'Debug: Post-Test Information'
         if: always() # Run even if tests fail

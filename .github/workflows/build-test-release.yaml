@@ -93,6 +93,7 @@ jobs:
         uses: lfreleng-actions/python-test-action@16adb21ca4866bebc75e7b35203ce5b376b01430 # v0.1.7
         with:
           python_version: "${{ matrix.python-version }}"
+          tox_tests: true
 
   python-audit:
     name: 'Python Audit'
