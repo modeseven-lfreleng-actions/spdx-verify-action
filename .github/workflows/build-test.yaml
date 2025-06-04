@@ -80,39 +80,6 @@ jobs:
           path_prefix: '.'
           tox_tests: true
 
-      - name: 'Debug: Post-Test Information'
-        if: always() # Run even if tests fail
-        run: |
-          echo "=== POST-TEST DEBUG INFORMATION ==="
-          echo "Working directory: $(pwd)"
-          echo "Test exit code: $?"
-          echo ""
-          echo "=== PYTEST CACHE AND LOGS ==="
-          if [ -d ".pytest_cache" ]; then
-            echo ".pytest_cache contents:"
-            find .pytest_cache -type f | head -10
-          fi
-          echo ""
-          echo "=== COVERAGE FILES ==="
-          if [ -f ".coverage" ]; then
-            echo ".coverage file exists"
-          fi
-          if [ -f "htmlcov/index.html" ]; then
-            echo "HTML coverage report exists"
-          fi
-          echo ""
-          echo "=== MANUAL TEST RUN ==="
-          echo "Attempting to run tests manually:"
-          python3 -m pip list | grep -E "(pytest|coverage)"
-          echo "Python path:"
-          python3 -c "import sys; print('\n'.join(sys.path))"
-          echo "Current working directory contents:"
-          ls -la
-          echo "Attempting single test run:"
-          python3 -m pytest \
-            tests/test_config.py::TestConfigurationValidation::test_config_file_exists \
-            -v || echo "Manual test failed"
-
   python-audit:
     name: 'Python Audit'
     runs-on: 'ubuntu-24.04'
